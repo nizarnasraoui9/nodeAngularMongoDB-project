@@ -1,0 +1,103 @@
+<header class="marg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <img src="../assets/images/113.png" alt="" width="150px" height="150px">
+      </div>
+      <div class="col-md-6">
+      <h1 style="color:black">welcome back {{ userfName }} {{ userlName }}</h1>
+      </div>
+      <div class="col-md-3">
+        <h3 class="text-info">States:</h3>
+        <p>number of publications:N</p>
+        <p>number of comments: N</p>
+        <p></p>
+
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-8">
+        <div class="container margbot" *ngFor="let p of pub " >
+          <div class="row" *ngIf="userIsAuthenticated && userId == p.creator._id">
+            <div class="col-md-8 pub" >
+                  <button *ngIf="userIsAuthenticated && userId == p.creator._id" class="flotright" (click)="deletePost(p)" >x</button>
+                  <div class="panel panel-default">
+                      <div class="panel-body">
+                         <section class="post-heading">
+                                      <div class="media">
+                                        <div class="media-left espaced ">
+                                          <a class="" href="#">
+                                            <img class="rounded-circle photoProfile" src="../../assets/images/logo.png" width="40" height="40" alt="...">
+                                          </a>
+                                        </div>
+                                        <div class="media-body espaced">
+                                          <a href="#" class="anchor-username"><h4 class="media-heading">{{ p.creator.firstname }} </h4></a>
+                                          <a href="#" class="anchor-time">{{ p._id }}</a>
+                                        </div>
+                                      </div>
+                         </section>
+                         <section class="post-body">
+                            <input type="hidden" id="custId" #custId name="custId" value="{{ p._id }}">
+                            <input type="hidden" id="fname" #fname name="fname" value="{{ userfName }}">
+                            <input type="hidden" id="lname" #lname name="lname" value="{{ userlName }}">
+                            <p class="publi">
+                              {{ p.title }}
+                            </p>
+                            <div class="centered">
+                              <img src="http://localhost:3300/{{ p.imagePath }}" alt="pub image" style="width:auto; height:auto;" class="img-fluid img-thumbnail">
+        
+                            </div>
+                            <p>
+                              {{ p.publication }}
+                            </p>
+                         </section>
+                         <section class="post-footer">
+                            <hr>
+                            <div class="container centered">
+                              <div class="row justify-content-start custom-line">
+                                  <div class="col-5">
+                                    <button type="button" class="btn btn-outline-primary  " style="width:120px ">Like</button>
+                                  </div>
+                                  <div class="col-5">
+                                    <button (click)="show()" type="button" class="btn  btn-outline-primary " style="width:120px ;">Comment</button>
+                                  </div>
+                              </div>
+                            </div>
+                              <br>
+                             <div *ngIf="comm" class="commentBox">
+                               <div class="row">
+                                 <div class="comment-form col-md-10">
+                                   <textarea class="form-control" #comm  rows="1"  #box placeholder="write your comment here!"></textarea>
+                                 </div>
+                                 <div class="col-md-2">
+                                    <button type="button" class="btn postComment" name="button" (click)="postComment(comm.value, custId.value, fname.value, lname.value)"   [routerLink]="['/publications']">post</button>
+                                 </div>
+                              </div>
+                                 <div class="comment" *ngFor="let c of p.comments">
+                                      <div class="media">
+                                        <div class="media-left">
+                                          <p>{{ c.fname }} {{ c.lname }}</p>
+                                          <a href="#">
+                                            <img class="rounded-circle photo-profile" src="../../assets/images/logo.png" width="32" height="32" alt="...">
+                                          </a>
+                                          <p>{{ c.text }}</p>
+                                        </div>
+                                      </div>
+                                 </div>
+                             </div>
+                         </section>
+                      </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</header>
+

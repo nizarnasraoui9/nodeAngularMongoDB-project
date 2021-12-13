@@ -1,0 +1,76 @@
+<div class="container">
+  <h2 class="centered marg text-info">Register</h2>
+  <div class="row marg">
+    <div class="col-md-12">
+      <form [formGroup]="regValidation" >
+        <div class="form-group">
+          <label for="first"><b>First name</b></label><br>
+          <input [class.is-invalid] = "f.firstName.invalid && f.firstName.touched"
+           class="form-control" type="text" placeholder="Enter your first name" formControlName="firstName" name="first name" id="first" #fName required>
+           <div *ngIf="(f.firstName.touched && f.firstName.invalid)" class="alert alert-danger">
+                  <div *ngIf="f.firstName.errors?.required">firstName is required.</div>
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="last"><b>Last name</b></label><br>
+          <input [class.is-invalid] = "f.lastName.invalid && f.lastName.touched"
+           class="form-control" type="text" placeholder="Enter your last name" formControlName="lastName" name="last name" id="last" #lName required>
+           <div *ngIf="(f.lastName.touched && f.lastName.invalid)" class="alert alert-danger">
+                  <div *ngIf="f.lastName.errors?.required">lastName is required.</div>
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="email"><b> Proxym Email</b></label><br>
+          <input [class.is-invalid] = "f.email.invalid && f.email.touched"
+           class="form-control" type="text" placeholder="Enter Email" formControlName="email" name="email" id="email" #email required>
+           <div *ngIf="(f.email.invalid && f.email.touched) || f.email.dirty">
+             	<div *ngIf="f.email.errors?.required" class="alert alert-danger"> email is required</div>
+             	<!--question mark(?) is a safe navigation operator-->
+             	<div *ngIf="f.email.errors?.pattern" class="alert alert-danger">Please provide a valid email address</div>
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="email"><b>Username</b></label><br>
+          <input [class.is-invalid] = "f.userName.invalid && f.userName.touched"
+           class="form-control" type="text" placeholder="Enter username" formControlName="userName" name="username" id="un" #un required>
+           <div *ngIf="(f.userName.touched && f.userName.invalid)" class="alert alert-danger">
+                  <div *ngIf="f.userName.errors?.required">userName is required.</div>
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="psw"><b>Password</b></label><br>
+          <input [class.is-invalid] = "f.password.invalid && f.password.touched"
+            class="form-control" type="password" formControlName="password" placeholder="Enter Password" name="psw" id="psw" #psw required>
+            <div *ngIf="(f.password.touched && f.password.invalid)" class="alert alert-danger">
+                   <div *ngIf="f.password.errors?.required">Password is required.</div>
+                   <div *ngIf="f.password.errors?.minLength">Password must be at least 6 characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="psw-repeat"><b>Repeat Password</b></label><br>
+          <input [class.is-invalid] = "f.confirmPassword.invalid && f.confirmPassword.touched"
+            class="form-control" type="password" formControlName="confirmPassword" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+            <div *ngIf="(f.confirmPassword.touched && f.confirmPassword.invalid)" class="alert alert-danger">
+                   <div *ngIf="f.confirmPassword.errors?.required">Password is required.</div>
+                   <div *ngIf="f.confirmPassword.errors?.confirmedValidator">Password and Confirm Password must be match.</div>
+
+            </div>
+        </div>
+        <p style="font-weight: bold; color: black;">select your pole please:</p>
+        <div class=" ">
+          <select #pole >
+          <option value="0"> your pole:</option>
+          <option value="1">ESS</option>
+          <option value="2">DEV</option>
+          <option value="3">Business</option>
+          </select>
+        </div>
+        <hr>
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        <button class="btn btn-primary btn-block"  (click)="onRegister(fName.value,lName.value,email.value,un.value,psw.value,pole.value)" [disabled]="!regValidation.valid"> Register</button>
+      </form>
+    </div>
+  </div>
+
+
+</div>

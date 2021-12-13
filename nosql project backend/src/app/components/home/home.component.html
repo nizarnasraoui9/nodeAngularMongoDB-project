@@ -1,0 +1,77 @@
+
+
+<!-- Banner -->
+  <section id="banner">
+    <div class="content">
+      <h1></h1>
+      <p>Live and work but do not forget to play,<br />to have fun in life and really enjoy it.</p>
+      <ul class="actions">
+        <li><a href="#one" class="button scrolly">Get Started</a></li>
+      </ul>
+    </div>
+  </section>
+
+
+<!-- One -->
+  <section id="one" class="wrapper">
+    <h1 class="centered">Functionalities:</h1>
+    <div class="inner flex flex-3">
+      <div class="flex-item left">
+        <div>
+          <h3>Read!</h3>
+          <p>Read comments, and articles that interests you!<br /> </p>
+        </div>
+        <div>
+          <h3>Comment!</h3>
+          <p>Comment on images, posts, and articles!<br /> </p>
+        </div>
+      </div>
+      <div class="flex-item image fit round">
+        <img src="assets/images/pic01.jpg" alt="" />
+      </div>
+      <div class="flex-item right">
+        <div>
+          <h3>Like!</h3>
+          <p>Like posts you find funny!<br /> </p>
+        </div>
+        <div>
+          <h3>Interact!</h3>
+          <p>Don't stop interacting!<br /> </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Two -->
+  <section id="two" class="wrapper style1 special">
+    <div class="inner">
+      <h2>Feugiat lorem</h2>
+      <figure>
+          <blockquote>
+              No matter how much pressure you feel at work, if you could find ways to relax for at least five minutes every hour, <br /> you'd be more productive."
+          </blockquote>
+          <footer>
+              <cite class="author">DDr. Joyce Brothers.</cite>
+              <cite class="company">CEO, Untitled</cite>
+          </footer>
+      </figure>
+    </div>
+  </section>
+
+<!-- Three -->
+  <section id="three" class="wrapper">
+    <h1 class="centered">Recent Publications</h1>
+    <div class="inner flex flex-3">
+      <div class="flex-item box" *ngFor="let pub of pubs">
+        <div class="image fit">
+          <img src="http://localhost:3300/{{ pub.imagePath }}" alt="" />
+        </div>
+        <div class="content">
+          <h3>{{pub.title}}</h3>
+          <p>{{pub.publication}}</p>
+        </div>
+      </div>
+    </div>
+    <h2 class="centered"><a routerLink="/publications">View more</a></h2>
+    
+  </section>

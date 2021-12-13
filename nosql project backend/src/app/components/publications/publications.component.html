@@ -1,0 +1,119 @@
+<section class="marg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-8">
+        <form [formGroup]="pubValidation">
+          <div class="form-group">
+            <label for="publicatin" ><h2>write a publication here {{ userfName }}: </h2></label>
+            <textarea [class.is-invalid] = "f.title.invalid && f.title.touched"
+             class="form-control" #tt  rows="1"  placeholder="Post title*" formControlName="title"></textarea>
+            <div *ngIf="(f.title.touched && f.title.invalid)" class="alert alert-danger">
+              <div *ngIf="f.title.errors?.required">Title is required.</div>
+            </div>            
+            <div>
+              <button class="class=btn btn-secondary btn-block" id="input-button" (click)="filePick.click()">choose image</button>
+              <input type="file" name=""  accept="image/*"  #filePick (change)="fileChange($event)">
+            </div>
+            <div class="imagePreview centered" *ngIf="imagePreview !== '' && imagePreview && f.image.valid">
+              <img class="rounded" [src]="imagePreview" [alt]="f.title" >
+            </div>
+            <textarea [class.is-invalid] = "f.content.invalid && f.content.touched"
+             class="form-control"  rows="4"  #cc placeholder="Post conetent*" formControlName="content"></textarea>
+             <div *ngIf="(f.content.touched && f.content.invalid)" class="alert alert-danger">
+              <div *ngIf="f.content.errors?.required">Content is required.</div>
+            </div> 
+          </div>
+          <button class="btn btn-info button_float" type="submit"  (click)="upload(tt.value, cc.value)" name="button"  [disabled]="!pubValidation.valid" >post</button>
+          <hr>
+          <h2 class="espaced">view Recent publications :</h2>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container margbot" *ngFor="let p of pub ">
+  <div class="row">
+  	<div class="col-md-8 pub" >
+          <button *ngIf="userIsAuthenticated && userId == p.creator._id " class="flotright" (click)="deletePost(p)" >x</button>
+          <div class="panel panel-default">
+              <div class="panel-body">
+                 <section class="post-heading">
+                              <div class="media">
+                                <div class="media-left espaced ">
+                                  <a class="" href="#">
+                                    <img class="rounded-circle photoProfile" src="../../assets/images/logo.png" width="40" height="40" alt="...">
+                                  </a>
+                                </div>
+                                <div class="media-body espaced">
+                                  <a href="#" class="anchor-username"><h4 class="media-heading">{{ p.creator.firstname }} {{ p.creator.lastname }} </h4></a>
+                                  <a href="#" class="anchor-time">time {{ p._id }}</a>
+                                </div>
+                              </div>
+                 </section>
+                 <section class="post-body">
+                    <input type="hidden" id="custId" #custId name="custId" value="{{ p._id }}">
+                    <input type="hidden" id="fname" #fname name="fname" value="{{ userfName }}">
+                    <input type="hidden" id="lname" #lname name="lname" value="{{ userlName }}">
+                    <p class="publi">
+                      {{ p.title }}
+                    </p>
+                    <div class="centered">
+                      <img src="http://localhost:3300/{{ p.imagePath }}" alt="pub image" style="width:auto; height:auto;" class="img-fluid img-thumbnail">
+
+                    </div>
+                    <p>
+                      {{ p.publication }}
+                    </p>
+                 </section>
+                 <section class="post-footer">
+                    <hr>
+                    <div class="container centered">
+                      <div class="row justify-content-start custom-line">
+                          <div class="col-3">
+                            <button type="button" class="btn btn-outline-primary  " style="width:120px" (click)="addlike()">Like <span class="badge badge-light">{{ number }}</span></button>
+                          </div>
+                          <div class="col-3">
+                            <button (click)="show()" type="button" class="btn  btn-outline-primary " style="width:120px ;">Comment</button>
+                          </div>
+                          <div class="col-3">
+                            
+                          </div>
+                      </div>
+                    </div>
+                      <br>
+                     <div *ngIf="comm" class="commentBox">
+                       <div class="row">
+                         <div class="comment-form col-md-10">
+                           <textarea class="form-control" #comm  rows="1"   placeholder="write your comment here!"></textarea>
+                         </div>
+                         <div class="col-md-2">
+                            <button type="button" class="btn postComment" name="button" (click)="postComment(comm.value, custId.value, fname.value, lname.value)"   [routerLink]="['/publications']">post</button>
+                         </div>
+                        </div>
+                        <div class="comment" *ngFor="let c of p.comments">
+                              <div class="media">
+                                <div class="media-left">
+                                  <div class="row">
+                                    <div class="col-md-2">
+                                      <a routerLink="/profile">
+                                        <img class="rounded-circle photo-profile" src="../../assets/images/logo.png" width="32" height="32" alt="...">
+                                      </a>
+                                    </div>
+                                    <div class="col-md-8">
+                                      {{ c.fname }} {{ c.lname }}
+                                    </div>
+                                  </div>
+                                  <p>{{ c.text }}</p>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                  </section>
+              </div>
+          </div>
+  	</div>
+  </div>
+</div>

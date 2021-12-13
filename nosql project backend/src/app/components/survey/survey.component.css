@@ -1,0 +1,13 @@
+.marg{
+  margin: 150px auto ;
+}
+.padcen{
+  padding-bottom: 50px;
+  text-align: center;
+  margin: 0 auto;
+}
+.padbut{
+  text-align: center;
+  margin: 8px auto;
+  padding: 20px inherit;
+}

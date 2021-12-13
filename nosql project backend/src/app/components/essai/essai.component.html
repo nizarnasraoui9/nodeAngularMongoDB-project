@@ -1,0 +1,35 @@
+<p>essai works!</p>
+<h1>hello</h1>
+<div class="mainContainer">
+    <div class="content">
+        <div class="header">
+            <h1>Angular File Upload</h1>
+        </div>
+        <div class="row margin25">
+
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text upload" id="btnUpload" (click)="upload(cc.value, tt.value)">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" #kk (change)="fileChange($event)" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                </div>
+                <div>
+                    <label for="title">title:</label>
+                    <input type="text" name="title" #tt placeholder="content*">
+                    <label for="content">content</label>
+                    <input type="text" name="content" #cc placeholder="content*">
+                </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,198 @@
+<div class="container marg">
+  <h3 class="padcen">hello there please fill the form below</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <select class="form-control" id="ville" (change)="city($event)">
+  			<option value="default">choose your favourite country destination</option>
+  			<option value="Tunisia">Tunisia</option>
+  			<option value="France">France</option>
+  			<option value="Algeria">Algeria</option>
+  			<option value="Morroco">Morroco</option>
+  			<option value="Turkey">Turkey</option>
+			</select>
+    </div>
+     <div *ngIf="aff=='Tunisia'" class="col-md-4">
+      <select class="form-control"  (change)="hotelTun($event)">
+  			<option value="default">choose your favourite city destination</option>
+  			<option value="sousse">Sousse</option>
+  			<option value="hammemet">Hammamet</option>
+  			<option value="djerba">Djerba</option>
+  			<option value="monastir">Monastir</option>
+  			<option value="turkey">Mahdia</option>
+			</select>
+    </div>
+    <div *ngIf="aff=='Morroco'" class="col-md-4">
+      <select class="form-control " (change)="hotelMor($event)">
+  			<option value="default">choose your favourite city destination</option>
+  			<option value="casablanca">casablanca</option>
+  			<option value="rabat">Rabat</option>
+  			<option value="marrakech">Marrakech</option>
+  			<option value="aghadir">Aghadir</option>
+			</select>
+    </div>
+    <div *ngIf="aff=='Algeria'" class="col-md-4">
+      <select class="form-control" (change)="hotelAlg($event)">
+  			<option value="default">choose your favourite city destination</option>
+  			<option value="alger">Alger</option>
+  			<option value="wahrane">Wahrane</option>
+  			<option value="oran">Oran</option>
+			</select>
+    </div>
+    <div *ngIf="aff=='France'" class="col-md-4">
+      <select class="form-control" (change)="hotelFr($event)">
+  			<option value="default">choose your favourite city destination</option>
+  			<option value="paris">Paris</option>
+  			<option value="marseille">Marseille</option>
+  			<option value="nice">Nice</option>
+  			<option value="monaco">Monaco</option>
+  			<option value="lile">Lile</option>
+			</select>
+    </div>
+    <div *ngIf="aff=='Turkey'" class="col-md-4">
+      <select class="form-control" (change)="hotelTurq($event)">
+  			<option value="default">choose your favourite city destination</option>
+  			<option value="istanbul">Istanbul</option>
+  			<option value="ankara">Ankara</option>
+  			<option value="izmir">Izmir</option>
+			</select>
+    </div>
+    <div *ngIf="hotTun=='monastir'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Sahra Beach</option>
+  			<option value="France">Dophine A l Habib</option>
+			</select>
+    </div>
+    <div *ngIf="hotTun=='sousse'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Mouradi Palace kantaoui</option>
+  			<option value="France">Marabot</option>
+			</select>
+    </div>
+    <div *ngIf="hotTun=='hammamet'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotTun=='Djerba'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotTun=='Tunis'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotAlg=='alger'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotAlg=='oran'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotAlg=='wahrane'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotFr=='paris'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotFr=='nice'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotFr=='monaco'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotFr=='lile'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotMor=='casablanca'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotMor=='rabat'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotMor=='marrakech'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotMor=='aghadir'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotTurq=='istanbul'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotTurq=='ankara'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+    <div *ngIf="hotTurq=='izmir'" class="col-md-4">
+      <select class="form-control ">
+  			<option value="default">choose your favourite hotel </option>
+  			<option value="Tunis">Tunisia</option>
+  			<option value="France">France</option>
+			</select>
+    </div>
+
+  </div>
+  <hr>
+  <div class="padbut">
+    <button type="submit" name="button" class="btn btn-primary"> submit your vote</button>
+  </div>
+</div>

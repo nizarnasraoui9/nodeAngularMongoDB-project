@@ -1,0 +1,36 @@
+<div class="container" id="Login">
+  <form [formGroup]="userEmails ">
+    <h2 class="marg centered text-info">Login</h2>
+    <div class="row marg">
+      <div class="col-md-12">
+        <div class="form-group">
+            <label for="email"><b>Email</b></label>
+            <input [class.is-invalid] = "primEmail.invalid && primEmail.touched"
+             class="form-control" #email type="text" placeholder="Enter email" formControlName="primaryEmail" required>
+        </div>
+        <div *ngIf="primEmail.invalid && primEmail.touched || primEmail.dirty">
+          	<div *ngIf="primEmail.errors?.required" class=" alert alert-danger">email is required</div>
+          	<!--question mark(?) is a safe navigation operator-->
+          	<div *ngIf="primEmail.errors?.pattern" class="alert alert-danger">Please provide a valid email address</div>
+        </div>
+        <div class="form-group">
+            <label for="psw"><b>Password</b></label>
+            <input [class.is-invalid] = "passwords.invalid && passwords.touched"
+             class="form-control" id="Password" #pwd type="password" formControlName="password" placeholder="Enter Password" name="psw" required>
+        </div>
+        <div *ngIf="(passwords.touched && passwords.invalid)" class="alert alert-danger">
+               <div *ngIf="passwords.errors?.required">Password is required.</div>
+        </div>
+        <div class="modal-footer">
+            <span class=" psw">Forgot <a href="#">password?</a></span>
+        </div>
+        <button class="btn btn-primary btn-block" (click)="onlogin(email.value,pwd.value)" [disabled]="!userEmails.valid" >Login</button>
+        <div style="padding-top: 8px; margin: 0 8px;" class="form-group">
+            <input type="checkbox" id="remember" checked="checked"  value="Remember me">
+            <label for="remember"> Remeber me</label><br> 
+        </div>
+      </div>
+    </div>
+  </form>
+  <p style="text-align: center;">you don't have account yet ? <span><a style="color: red;" routerLink="/register">click-here</a></span></p>
+</div>

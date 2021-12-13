@@ -1,0 +1,99 @@
+.marg{
+  margin: 20px;
+}
+.button_float{
+  float: right;
+  font-size: 75%;
+  padding: .25rem .5rem;
+  border-radius: .25rem;
+}
+.espaced{
+   padding: 30px 0;
+   margin: 5px;
+}
+.publi{
+  text-align: center;
+  font-size: large ;
+  font-weight: bold;
+}
+.centered{
+  text-align: center;
+}
+.flotright{
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  z-index: 10;
+  font-size: 75%;
+  padding: .5rem .5rem;
+  border-radius: .25rem;
+  background-color: black;
+}
+.pub{
+  margin: 18px auto ;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.postComment{
+  width: 100px;
+  height: 40px;
+}
+
+
+/*-- Global Selectors --*/
+a{
+    color:#47649F;
+}
+
+body{
+    font-family:'helvetica';
+}
+
+/*-- Bootstrap Override Style --*/
+
+
+/*-- Content Style --*/
+
+.post-footer-option li{
+    float: left;
+    margin-right:50px;
+    padding-bottom:15px;
+}
+
+.post-footer-option li a{
+    text-align: center;
+    color:#AFB4BD;
+    font-weight:500;
+    font-size:1.3rem;
+}
+
+.photoProfile{
+    border:1px solid black;
+  }
+
+.anchor-username h4{
+    font-weight:bold;
+}
+
+.anchor-time{
+    color:#ADB2BB;
+    font-size:1.2rem;
+}
+
+.post-footer-comment-wrapper{
+    background-color:#F6F7F8;
+}
+.margbot{
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+}
+input[type="file"] {
+  visibility: hidden;
+}
+.imagePreview{
+  height: 5rem;
+  margin: 1rem 0;
+}
+.imagePreview img{
+  height: 100%;
+}
